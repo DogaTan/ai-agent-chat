@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "./firebase";
 import { ref, push, onValue, remove } from "firebase/database";
 
+
 function ChatScreen() {
   const [userMessage, setUserMessage] = useState("");
   const [messages, setMessages] = useState([]);
@@ -73,7 +74,7 @@ function ChatScreen() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/chat",
+        `${process.env.REACT_APP_GATEWAY_URL}/chat`,
         { message: userMessage },
         {
           headers: {
