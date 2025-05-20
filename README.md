@@ -63,7 +63,8 @@ npm start
 
 You must have a valid user in the backend system to log in. Use the same credentials as used in the Midterm API project. (Username: admin , Password: 1234)
 
-### 🎥 Presentation Video
+
+## 🎥 Presentation Video
 
 [📺 Watch the video here](https://drive.google.com/file/d/1LgFTzhip-IQkafnt3iItlVR-iBcV8Qyk/view?usp=drive_link)
 
