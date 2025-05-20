@@ -74,7 +74,7 @@ function ChatScreen() {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/chat`,
+        `https://ai-agent-gateway.onrender.com/chat`,
         { message: userMessage },
         {
           headers: {
