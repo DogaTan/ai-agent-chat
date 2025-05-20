@@ -74,7 +74,7 @@ function ChatScreen() {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_GATEWAY_URL}/chat`,
+        `http://localhost:3000/chat`,
         { message: userMessage },
         {
           headers: {

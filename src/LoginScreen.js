@@ -23,7 +23,7 @@ function LoginScreen({ onLogin }) {
   }
 
   try {
-    const response = await axios.post(`${process.env.REACT_APP_GATEWAY_URL}/login`, {
+    const response = await axios.post(`http://localhost:3000/login`, {
       username,
       password,
     });
