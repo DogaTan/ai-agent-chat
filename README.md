@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# AI Agent Chat UI (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based chat interface where users can interact with an AI agent to query mobile bill summaries, view details, make payments, and see billing history. The interface communicates with a Node.js backend gateway, which integrates Ollama + Mistral for intent recognition.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- User login with JWT authentication
+- Secure access to chat screen
+- Realtime messaging using Firebase Realtime Database
+- Bill summary, detailed view, payment, and history handling
+- Mobile-friendly and responsive layout using Material UI (MUI)
+- "Agent is typing..." animated feedback
+- Message timestamps and chat clearing
+- Local or production API selection using environment variables
 
-### `npm start`
+## 📁 File Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+src/
+├── App.js               # Routing and auth context
+├── ChatScreen.js        # Main chat UI
+├── LoginScreen.js       # Login form
+├── firebase.js          # Firebase configuration
+├── index.js             # React root
+└── ...
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔐 Auth and Token Flow
 
-### `npm test`
+1. User logs in via `LoginScreen.js`.
+2. Token is retrieved from the backend `/api/v1/auth/login` endpoint.
+3. Token is stored in `localStorage`.
+4. All `/chat` requests include the token in the `Authorization` header.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```js
+headers: {
+  Authorization: localStorage.getItem("token")
+}
+```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Run development server:
+```bash
+npm start
+```
 
-### `npm run eject`
+## 🛠 Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React.js
+- Firebase Realtime Database
+- Material UI
+- Axios
+- JWT Authentication
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔐 Test User Login
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You must have a valid user in the backend system to log in. Use the same credentials as used in the Midterm API project. (Username: admin , Password: 1234)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🎥 Presentation Video
 
-## Learn More
+[📺 Watch the video here](https://drive.google.com/file/d/1LgFTzhip-IQkafnt3iItlVR-iBcV8Qyk/view?usp=drive_link)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is deployed on [Render](https://render.com/)  
+🔗 **Live URL:** (https://ai-agent-chat.onrender.com)
+🔗 **Midterm API Swagger UI:** [`https://se4458-midterm-project.onrender.com/swagger-ui.html`](https://se4458-midterm-project.onrender.com/swagger-ui.html)
